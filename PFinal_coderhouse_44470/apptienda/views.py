@@ -8,4 +8,4 @@ from apptienda.models import *
 
 #vista de la pagina inicio
 def vista_inicio(request):
-    return render(request, "inicio.html")
+    return render(request, "apptienda/inicio.html")
