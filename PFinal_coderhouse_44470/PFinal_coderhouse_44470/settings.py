@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "apptienda",
+    "appmascotas",
 ]
 
 MIDDLEWARE = [
@@ -54,7 +56,7 @@ ROOT_URLCONF = 'PFinal_coderhouse_44470.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [r"C:\Users\Claudio\Downloads\Proyectos Python\PFinal_coderhouse_44470\PFinal_coderhouse_44470\apptienda\templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
