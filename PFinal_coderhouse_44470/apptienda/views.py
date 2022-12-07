@@ -9,3 +9,6 @@ from apptienda.models import *
 #vista de la pagina inicio
 def vista_inicio(request):
     return render(request, "apptienda/inicio.html")
+
+def vista_tienda(request):
+    return render(request, "apptienda/inicio.html")
