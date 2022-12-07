@@ -17,5 +17,3 @@ class mascotas (models.Model):
     def delete(self, using=None, keep_parents=False):
         self.imagen.storage.delete(self.imagen.name)
         super().delete()
-
-class loadmascota ( )

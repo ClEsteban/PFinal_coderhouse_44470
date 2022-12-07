@@ -10,5 +10,10 @@ from apptienda.models import *
 def vista_inicio(request):
     return render(request, "apptienda/inicio.html")
 
+#def vista_tienda(request):
+#    return render(request, "apptienda/tienda.html")
+
 def vista_tienda(request):
-    return render(request, "apptienda/tienda.html")
+    productos = Productos.objects.all()
+    contexto = {"productos":productos}
+    return render(request, "apptienda/productos.html", contexto)

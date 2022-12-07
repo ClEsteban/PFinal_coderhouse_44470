@@ -1,0 +1,22 @@
+{% extends 'apptienda/tienda.html' %}
+
+{% load static %}
+
+{% block Contenido%}
+
+    {% if productos %}
+        <ul>
+        {% for producto in productos %}
+        {{producto}}
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p> Ups! de momento estamos sin stock </p>
+        <p> Pronto tendremos nuevos productos </p>
+    {% endif %}
+
+
+
+
+
+{% endblock %}
