@@ -11,4 +11,4 @@ def vista_inicio(request):
     return render(request, "apptienda/inicio.html")
 
 def vista_tienda(request):
-    return render(request, "apptienda/inicio.html")
+    return render(request, "apptienda/tienda.html")

@@ -3,7 +3,7 @@ from apptienda.views import *
 
 urlpatterns = [
     path('inicio/', vista_inicio, name="tienda-inicio"),
-    #path('clientes/', vista_clientes, name="vet-clientes"),
+    path('tienda/', vista_tienda, name="vet-tienda"),
     #path('clientes/crear/', vista_crear_cliente, name="vet-crear-cliente"),
     #path('mascotas/', vista_mascotas, name="vet-mascotas"),
     #path('mascotas/crear/', vista_crear_mascota, name="vet-crear-mascota"),
