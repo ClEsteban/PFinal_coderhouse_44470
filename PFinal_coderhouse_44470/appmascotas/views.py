@@ -30,3 +30,25 @@ def mascota_borrar(request, id):
     mascota = mascotas.objects.get(id=id)
     mascota.delete()
     return redirect("vet-mascotas")
+
+def mascota_editar(request, id):
+    mascota = mascotas.objects.get(id=id)
+
+    if request.method == "POST":
+        formulario = MascotaFormulario(request.POST)
+
+        if formulario.is_valid():
+            data = formulario.cleaned_data
+
+            mascota.nombre = data["nombre"]
+            mascota.tipo = data["tipo"]
+            mascota.raza = data["raza"]
+            mascota.imagen = data["imagen"]
+            mascota.descripcion = data["descripcion"]
+            mascota.save()
+            return redirect("vet-mascotas")
+        else:
+            return render(request, "mascota-editar", {"formulario": formulario, "errores": formulario.errors})
+    else:
+        formulario = MascotaFormulario(initial={"nombre":mascota.nombre, "tipo":mascota.tipo, "raza":mascota.raza, "imagen":mascota.imagen, "descripcion":mascota.descripcion})
+        return render(request, "appmascotas/editar_mascota.html", {"formulario": formulario, "errores": ""})

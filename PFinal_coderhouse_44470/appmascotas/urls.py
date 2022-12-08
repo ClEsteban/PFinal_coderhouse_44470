@@ -5,4 +5,5 @@ from appmascotas.views import *
 urlpatterns = [
     path('mascotas/', vista_mascotas, name="vet-mascotas"),
     path('mascotas/borrar/<id>', mascota_borrar, name="mascota-borrar"),
+    path('mascotas/editar/<id>', mascota_editar, name="mascota-editar"),
 ]

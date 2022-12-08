@@ -15,7 +15,7 @@ y los productos especificos para su raza/especie
 {% if mascotas %}
         <ul>
         {% for mascota in mascotas %}
-            <li>{{mascota}} <a href="{% url 'mascota-borrar' mascota.id %}">Eliminar</a></li>
+            <li>{{mascota}} <a href="{% url 'mascota-borrar' mascota.id %}">Eliminar </a><a href="{% url 'mascota-editar' mascota.id %}">Editar</a></li>
         {% endfor %}
         </ul>
     {% else %}
