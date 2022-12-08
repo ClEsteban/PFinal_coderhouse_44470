@@ -22,5 +22,5 @@ from appmascotas.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('apptienda/', include('apptienda.urls')),
-    #path('appmascotas/', include('appmascotas.urls'))
+    path('appmascotas/', include('appmascotas.urls')),
 ]
