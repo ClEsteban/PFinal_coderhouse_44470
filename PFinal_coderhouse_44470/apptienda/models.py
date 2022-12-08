@@ -11,7 +11,7 @@ class Productos(models.Model):
     descripcion= models.TextField(verbose_name= 'Descripcion', null=True)
     
     def __str__(self):
-        fila = f"Producto: {self.nombre} - Marca: {self.marca} - Precio: {self.precio} - Descripcion: {self.descripcion}"
+        fila = f"Producto: {self.nombre} - Marca: {self.marca} - Precio: ${self.precio} - Descripcion: {self.descripcion}"
         return fila
 
     def delete(self, using=None, keep_parents=False):

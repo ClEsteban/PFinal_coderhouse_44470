@@ -10,7 +10,7 @@
     {% if productos %}
         <ul>
         {% for producto in productos %}
-        {{producto}}
+            <li>{{producto}} <a href="{% url 'vet-comprar' producto.id %}">Comprar</a></li>
         {% endfor %}
         </ul>
     {% else %}
