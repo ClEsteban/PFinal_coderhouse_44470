@@ -1,3 +1,7 @@
 # PFinal_coderhouse_44470
 
-Proyecto elaborado por (Claudio, Camilo y Damian)
+Trabajo final curso de python coderhouse comision 44470
+
+Pagina web de veterinaria/petshop, con tienda, etc
+
+Proyecto elaborado por Claudio Esteban
