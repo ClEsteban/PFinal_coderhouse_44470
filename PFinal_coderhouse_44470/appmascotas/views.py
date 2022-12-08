@@ -4,6 +4,7 @@ from datetime import datetime
 from django.template import Template, Context, loader
 from appmascotas.models import *
 from appmascotas.forms import *
+from django.views.generic import ListView
 
 
 def vista_mascotas(request):
@@ -51,4 +52,4 @@ def mascota_editar(request, id):
             return render(request, "mascota-editar", {"formulario": formulario, "errores": formulario.errors})
     else:
         formulario = MascotaFormulario(initial={"nombre":mascota.nombre, "tipo":mascota.tipo, "raza":mascota.raza, "imagen":mascota.imagen, "descripcion":mascota.descripcion})
-        return render(request, "appmascotas/editar_mascota.html", {"formulario": formulario, "errores": ""})
+        return render(request, "editar_mascota.html", {"formulario": formulario, "errores": ""})
