@@ -17,3 +17,6 @@ def vista_tienda(request):
     productos = Productos.objects.all()
     contexto = {"productos":productos}
     return render(request, "apptienda/productos.html", contexto)
+
+def vista_about(request):
+    return render(request, "apptienda/about.html")

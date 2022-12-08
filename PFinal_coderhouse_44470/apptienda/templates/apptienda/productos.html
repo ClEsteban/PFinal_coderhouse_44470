@@ -1,6 +1,9 @@
-{% extends 'apptienda/tienda.html' %}
+{% extends 'apptienda/base.html' %}
 
 {% load static %}
+
+{% block titulo %} Bienvenido a la tienda {% endblock %}
+{% block subtitulo %} Productos {% endblock %}
 
 {% block Contenido%}
 
@@ -15,8 +18,18 @@
         <p> Pronto tendremos nuevos productos </p>
     {% endif %}
 
-
-
-
+</ul>
+<p class="address mb-5">
+    <em>
+        <strong>Avenida Siempre Viva 123</strong>
+        <br />
+        Springfield, Minnesota
+    </em>
+</p>
+<p class="mb-0">
+    <small><em>Llamanos</em></small>
+    <br />
+    (3541) 666-12345
+</p>
 
 {% endblock %}

@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from django.urls import include
 from apptienda.views import *
-# from appmascotas.views import *
+from appmascotas.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
