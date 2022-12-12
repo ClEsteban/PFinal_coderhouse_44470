@@ -1,0 +1,17 @@
+{% extends 'apptienda/base.html' %}
+
+{% load static %}
+
+{% block titulo %} LOGIN {% endblock %}
+{% block subtitulo %} Accede o crea tu cuenta {% endblock %}
+
+{% block Contenido %}
+
+
+<form method="post">
+    {% csrf_token %}
+    {{formulario.as_p}}
+    <input type="submit" value="Iniciar Sesion">
+</form>
+
+{% endblock %}

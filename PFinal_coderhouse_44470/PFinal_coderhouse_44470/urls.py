@@ -18,9 +18,11 @@ from django.urls import path
 from django.urls import include
 from apptienda.views import *
 from appmascotas.views import *
+from applogin.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('apptienda/', include('apptienda.urls')),
     path('appmascotas/', include('appmascotas.urls')),
+    path('applogin/', include('applogin.urls')),
 ]
