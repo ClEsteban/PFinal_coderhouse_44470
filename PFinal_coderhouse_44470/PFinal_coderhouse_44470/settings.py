@@ -127,5 +127,5 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, r"apptienda/static/"),)
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Auth Config
-LOGIN_URL = "/auth/login/"
+# URL Para el login Auth Config 
+LOGIN_URL = "/applogin/"

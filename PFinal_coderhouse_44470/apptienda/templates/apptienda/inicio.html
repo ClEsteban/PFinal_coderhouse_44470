@@ -34,7 +34,14 @@
                         <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'vet-mascotas' %}">MASCOTAS</a></li>
                         <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'vet-tienda' %}">TIENDA</a></li>
                         <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'vet-about' %}">ABOUT</a></li>
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'vet-login' %}">LOGIN</a></li>
+                        
+                        {% if request.user.is_authenticated %}
+                            <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'vet-logout' %}">LOGOUT</a></li>
+
+                        {% else %}
+                            <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'vet-login' %}">LOGIN</a></li>
+
+                        {% endif %}
                     </ul>
                 </div>
             </div>

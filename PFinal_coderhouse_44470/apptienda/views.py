@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from datetime import datetime
 from django.template import Template, Context, loader
 from apptienda.models import *
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 #vista de la pagina inicio
 def vista_inicio(request):

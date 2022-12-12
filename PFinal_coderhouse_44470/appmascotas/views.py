@@ -5,8 +5,10 @@ from django.template import Template, Context, loader
 from appmascotas.models import *
 from appmascotas.forms import *
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 
-
+@login_required #decoradores para proteger las funciones, para las clases usar LoginRequiredMixin
 def vista_mascotas(request):
 
     # formulario de carga de mascotas

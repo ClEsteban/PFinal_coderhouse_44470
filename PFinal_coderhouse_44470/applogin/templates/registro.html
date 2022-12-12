@@ -2,8 +2,8 @@
 
 {% load static %}
 
-{% block titulo %} LOGIN {% endblock %}
-{% block subtitulo %} Accede o crea tu cuenta {% endblock %}
+{% block titulo %} REGISTRO {% endblock %}
+{% block subtitulo %} Crea tu cuenta {% endblock %}
 
 {% block Contenido %}
 
@@ -14,10 +14,10 @@
 <form method="post">
     {% csrf_token %}
     {{formulario.as_p}}
-    <input type="submit" value="Iniciar Sesion">    
+    <input type="submit" value="Registrarse">
 </form>
 
-<p> No tenes cuenta? create una! </p>
-<a href="{% url 'vet-registro' %}"> Registrarse </a>
+<p> Ya tenes cuenta? </p>
+<a href="{% url 'vet-login' %}"> Inicia Sesion </a>
 
 {% endblock %}
