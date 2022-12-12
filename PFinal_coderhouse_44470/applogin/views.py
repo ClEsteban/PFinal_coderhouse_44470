@@ -5,7 +5,7 @@ from django.template import Template, Context, loader
 from applogin.models import *
 from applogin.forms import *
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm #UserEditForm
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
@@ -50,4 +50,18 @@ def vista_registro(request):
     formulario = UserRegisterForm()
 
     return render(request, "registro.html", {"formulario":formulario})
-        
+
+@login_required
+def editar_perfil(request):
+    
+    usuario = request.user
+
+    if request.method == "POST":
+        #formulario = UserEditForm(request.POST)
+        pass
+
+    else:
+        #formulario = UserEditForm(initial={"first_name", "last_name", "email"})
+        pass
+    
+    return render(request, "editar_perfil.html")
