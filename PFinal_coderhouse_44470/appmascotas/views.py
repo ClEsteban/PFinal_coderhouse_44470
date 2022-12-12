@@ -4,7 +4,7 @@ from datetime import datetime
 from django.template import Template, Context, loader
 from appmascotas.models import *
 from appmascotas.forms import *
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
 
 def vista_mascotas(request):
@@ -53,3 +53,29 @@ def mascota_editar(request, id):
     else:
         formulario = MascotaFormulario(initial={"nombre":mascota.nombre, "tipo":mascota.tipo, "raza":mascota.raza, "imagen":mascota.imagen, "descripcion":mascota.descripcion})
         return render(request, "editar_mascota.html", {"formulario": formulario, "errores": ""})
+
+# EJEMPLO DE CLASES BASADAS EN VISTAS
+class MascotaList(ListView):
+    model = mascotas
+    template_name = "mascotas_list.html"
+
+#EJEMPLO DE DETAIL VIEWS, permite obtener el detalle completo de un unico registro, parecido al editar
+class MascotaDetalle(DetailView):
+    model = mascotas
+    template_name = "mascotas_detalle.html"
+
+#ejemplo de CREATEVIEW
+class MascotaCrear(CreateView):
+   model = mascotas
+   success_url = "/appmascotas/mascotas/"
+   fields = ["nombre", "tipo", "raza", "descripcion", "imagen"]
+
+class MascotaActualizar(UpdateView):
+   model = mascotas
+   success_url = "/appmascotas/mascotas/"
+   fields = ["nombre", "tipo", "raza", "descripcion", "imagen"]
+
+class MascotaBorrar(DeleteView):
+   model = mascotas
+   success_url = "/appmascotas/mascotas/"
+   

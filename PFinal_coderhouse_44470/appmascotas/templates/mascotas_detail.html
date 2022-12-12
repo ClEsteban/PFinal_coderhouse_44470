@@ -1,0 +1,21 @@
+{% extends 'apptienda/base.html' %}
+
+{% load static %}
+
+{% block titulo %} Edita tu {% endblock %}
+{% block subtitulo %} Mascota {% endblock %}
+
+{% block Contenido %}
+
+<form method="post">
+    {% csrf_token %}
+    <p> 
+        Estas seguro que queres eliminar tu mascota? '{{object.nombre}}'
+        <input type="submit" value="SI">        
+    </p>
+    <a href="{% url 'vet-mascotas' %}"> Volver al listado </a>
+
+    
+</form>
+
+{% endblock %}
