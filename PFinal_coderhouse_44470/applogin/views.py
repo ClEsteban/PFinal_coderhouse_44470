@@ -57,11 +57,20 @@ def editar_perfil(request):
     usuario = request.user
 
     if request.method == "POST":
-        #formulario = UserEditForm(request.POST)
-        pass
+        formulario = UserEditForm(request.POST)
+        if formulario.is_valid():
+            data = formulario.cleaned_data
+
+            usuario.email = data["email"]
+            usuario.fist_name = data["first_name"]
+            usuario.last_name = data["last_name"]
+
+            usuario.save()
+            return redirect("tienda-inicio")
+        else:
+            return render(request, "editar_perfil.html", {"formulario":formulario, "errros":formulario.errors})
 
     else:
-        #formulario = UserEditForm(initial={"first_name", "last_name", "email"})
-        pass
+        formulario = UserEditForm(initial={"first_name":usuario.first_name, "last_name":usuario.last_name, "email":usuario.email})
     
-    return render(request, "editar_perfil.html")
+    return render(request, "editar_perfil.html", {"formulario":formulario})

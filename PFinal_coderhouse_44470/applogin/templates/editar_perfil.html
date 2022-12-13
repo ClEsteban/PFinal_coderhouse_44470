@@ -5,6 +5,10 @@
 {% block titulo %} TU PERFIL {% endblock %}
 {% block subtitulo %} Edita los datos de tu perfil {% endblock %}
 
+{% if errors %}
+    <p style="color: red">ERROR{{errors}}</p>
+{% endif %}
+
 {% block Contenido %}
 
 <form method="post">

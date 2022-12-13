@@ -36,6 +36,7 @@
                         <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'vet-about' %}">ABOUT</a></li>
                         
                         {% if request.user.is_authenticated %}
+                            <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'vet-perfil' %}">EDITAR PERFIL</a></li>
                             <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'vet-logout' %}">LOGOUT</a></li>
 
                         {% else %}
