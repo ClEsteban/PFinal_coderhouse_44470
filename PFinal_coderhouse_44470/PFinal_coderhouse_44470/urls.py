@@ -22,7 +22,7 @@ from applogin.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('apptienda/', include('apptienda.urls')),
+    path('', include('apptienda.urls')),
     path('appmascotas/', include('appmascotas.urls')),
     path('applogin/', include('applogin.urls')),
 ]
