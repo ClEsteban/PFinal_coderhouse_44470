@@ -129,3 +129,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # URL Para el login Auth Config 
 LOGIN_URL = "/applogin/"
+
+# configuracion media para imagenes
+MEDIA_URL ="/media/"
+MEDIA_ROOT =(os.path.join(BASE_DIR, "media"),)

@@ -38,10 +38,13 @@
                         {% if request.user.is_authenticated %}
                         <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'vet-perfil' %}">EDITAR PERFIL</a></li>
                         <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'vet-logout' %}">LOGOUT</a></li>
+                        <li class="nav-item px-lg-4"><a class="nav-link " href=""> Hola {{request.user.username}}!</a></li>
                         {% else %}
                             <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'vet-login' %}">LOGIN</a></li>
 
                         {% endif %}
+
+
                         
                     </ul>
                 </div>
