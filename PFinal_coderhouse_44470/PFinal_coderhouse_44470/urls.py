@@ -19,7 +19,7 @@ from django.urls import include
 #from apptienda.views import *
 #from appmascotas.views import *
 #from applogin.views import *
-import settings
+#import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
@@ -29,4 +29,4 @@ urlpatterns = [
     path('applogin/', include('applogin.urls')),
 ]
 
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+#urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
