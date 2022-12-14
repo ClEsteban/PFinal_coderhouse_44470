@@ -16,7 +16,7 @@ def vista_inicio(request):
             imagen_url = imagen_model.imagen.url
         except:
             imagen_url = ""
-        return render(request, "apptienda/inicio.html", {"imagen_url": imagen_url})
+        return render(request, "apptienda/inicio.html")
 
 
 def vista_tienda(request):
