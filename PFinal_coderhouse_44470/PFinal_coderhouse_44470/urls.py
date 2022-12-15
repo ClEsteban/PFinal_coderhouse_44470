@@ -19,8 +19,8 @@ from django.urls import include
 #from apptienda.views import *
 #from appmascotas.views import *
 #from applogin.views import *
-import PFinal_coderhouse_44470.settings as settings
-from django.conf.urls.static import static
+#import PFinal_coderhouse_44470.settings as settings
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,4 +29,8 @@ urlpatterns = [
     path('applogin/', include('applogin.urls')),
 ]
 
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+if settings.DEBUG: 
+    from django.conf.urls.static import static 
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+    

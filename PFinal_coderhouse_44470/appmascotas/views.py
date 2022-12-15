@@ -13,19 +13,22 @@ def vista_mascotas(request):
 
     # formulario de carga de mascotas
     if request.method == "POST":
-        formulario = MascotaFormulario(request.post)
-
+        formulario = MascotaFormulario(request.POST or None)
+        
         if formulario.is_valid():
             data = formulario.cleaned_data
             Mascota = mascotas(nombre=data["nombre"], tipo=data["tipo"], raza=data["raza"], imagen=data["imagen"], descripcion=data["descripcion"])
             Mascota.save()
-
+            formulario = MascotaFormulario()
+            return formulario
     # listado de mascotas:
     Mascotas = mascotas.objects.all()
 
     # crea formulario vacio
     formulario = MascotaFormulario()
-    contexto = {"mascotas":Mascotas, "formulario":formulario}
+    contexto = {"mascotas":Mascotas, "mascota":formulario}
+    print("contexto", contexto)
+    
 
     return render(request, "cargatumascota.html", contexto)
 

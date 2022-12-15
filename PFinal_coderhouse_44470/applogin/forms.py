@@ -25,7 +25,7 @@ class UserEditForm(UserCreationForm):
     class Meta:
         model = User
         fields = ["first_name", "last_name", "email"]
-        #exclude = ["password1", "password2"]
+        exclude = ["password1", "password2"]
 
         #help_texts = {k: "" for k in fields}
 

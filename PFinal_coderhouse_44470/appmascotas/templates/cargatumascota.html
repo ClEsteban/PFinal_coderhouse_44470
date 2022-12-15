@@ -1,34 +1,37 @@
-{% extends 'apptienda/base.html' %}
+{% extends 'apptienda/base.html' %} {% load static %} {% block titulo %} Carga
+tus mascotas! {% endblock %} {% block Contenido %}
 
-{% load static %}
-
-{% block titulo %} Carga tus {% endblock %}
-{% block subtitulo %} Mascotas! {% endblock %}
-
-{% block Contenido %}
-
-<p> En esta seccion te invitamos a cargar los datos de tu mascota para que 
-compartas con tus amigos y tengamos siempre el mejor tratamiento disponible
-y los productos especificos para su raza/especie
+<p>
+  En esta seccion te invitamos a cargar los datos de tu mascota para que
+  compartas con tus amigos y tengamos siempre el mejor tratamiento disponible y
+  los productos especificos para su raza/especie
 </p>
 
 {% if mascotas %}
-        <ul>
-        {% for mascota in mascotas %}
-            <li>{{mascota}} <a href="{% url 'mascota-borrar' mascota.id %}">Eliminar </a><a href="{% url 'mascota-editar' mascota.id %}">Editar</a></li>
-        {% endfor %}
-        </ul>
-    {% else %}
-        <p> Ups! de momento no hay mascotas cargadas </p>
-        <p> Se el primero en compartir con tus amigos! </p>
-    {% endif %}
+<p>
+  {{ mascota }}
+</p>
+<img src="{{mascota.image.url}}" />
+<ul>
+  {% for mascota in mascotas %}
+  <li>
+    {{mascota}}
+    <a href="{% url 'mascota-borrar' mascota.id %}">Eliminar</a>
+    <a href="{% url 'mascota-editar' mascota.id %}">Editar</a>
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
 
-<h3> CARGA TU MASCOTA: </h3>
+<p>Ups! de momento no hay mascotas cargadas</p>
+<p>Se el primero en compartir con tus amigos!</p>
+{% endif %}
+
+<h3>CARGA TU MASCOTA:</h3>
 
 <form method="post">
-    {% csrf_token %}
-    {{formulario.as_p}}
-    <input type="submit" value="Cargar Mascota">
+  {% csrf_token %} {{formulario.as_p}}
+  <input type="submit" value="Cargar Mascota" />
 </form>
 
 {% endblock %}
