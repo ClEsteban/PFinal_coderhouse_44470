@@ -27,6 +27,7 @@ urlpatterns = [
     path('', include('apptienda.urls')),
     path('appmascotas/', include('appmascotas.urls')),
     path('applogin/', include('applogin.urls')),
+    path('contacto/', include('mensajes.urls')),
 ]
 
 if settings.DEBUG: 

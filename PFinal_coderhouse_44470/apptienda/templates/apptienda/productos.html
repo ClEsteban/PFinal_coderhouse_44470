@@ -7,18 +7,19 @@
 
 {% block Contenido%}
 
-    {% if productos %}
-        <ul>
-        {% for producto in productos %}
-            <li>{{producto}} <a href="{% url 'vet-comprar' producto.id %}">Comprar</a></li>
-        {% endfor %}
-        </ul>
-    {% else %}
-        <p> Ups! de momento estamos sin stock </p>
-        <p> Pronto tendremos nuevos productos </p>
-    {% endif %}
-
+{% if productos %}
+   {% for producto in productos %}
+    <li>
+      {{producto}} 
+      <a href="{% url 'vet-comprar' producto.id %}">Comprar</a>
+    </li>
+    {% endfor %}
 </ul>
+{% else %}
+<p> Ups! de momento estamos sin stock </p>
+<p> Pronto tendremos nuevos productos </p>
+{% endif %}
+
 <p class="address mb-5">
     <em>
         <strong>Avenida Siempre Viva 123</strong>

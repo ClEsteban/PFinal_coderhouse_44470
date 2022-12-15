@@ -7,7 +7,7 @@ class Productos(models.Model):
     nombre = models.CharField(max_length=100, verbose_name= 'Nombre')
     marca = models.CharField(max_length=100, verbose_name= 'Marca')
     precio = models.IntegerField(verbose_name= 'Precio', null=True)
-    imagen = models.ImageField(upload_to='Imagenes/',verbose_name='Imagen', null= True)
+    imagen = models.ImageField(default='null', verbose_name="productos",upload_to="productos")
     descripcion= models.TextField(verbose_name= 'Descripcion', null=True)
     
     def __str__(self):

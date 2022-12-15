@@ -74,3 +74,9 @@ def editar_perfil(request):
         formulario = UserEditForm(initial={"first_name":usuario.first_name, "last_name":usuario.last_name, "email":usuario.email})
     
     return render(request, "editar_perfil.html", {"formulario":formulario})
+
+@login_required
+def agregar_avatar(request):
+        
+        
+        pass

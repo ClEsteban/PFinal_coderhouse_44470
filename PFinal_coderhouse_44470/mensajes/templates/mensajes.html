@@ -1,0 +1,41 @@
+{% extends 'apptienda/base.html' %}
+{% load static %}
+{% block contenido %}
+<div class="contacto_container">
+<div class="chat" id="msg">
+    <div class="mensajes">
+        {% for mensaje in mensajes %}
+                <div class="chat-bubble">
+                    <p>{{mensaje.msg_content}}</p>
+                    <p class="pFecha">{{mensaje.fecha}}</p>
+                </div>
+            {% if mensaje.sender|stringformat:"s" == 'matiasit' %}
+            <div class="chat-bubble chat-left chat-green">
+                    <p class='pSender' style='color: blue'>Administrador:</p>
+                    <p>{{mensaje.msg_content}}</p>
+                    <p class="pFecha">{{mensaje.fecha}}</p>
+                </div>
+            {% else %}
+            
+            <div class="chat-bubble chat-left">
+                <p class='pSender'>{{mensaje.sender}}:</p>
+                <p>{{mensaje.msg_content}}</p>
+                <p class="pFecha">{{mensaje.fecha}}</p>
+            </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+    {% if request.user.is_authenticated %}
+    <form method="post">
+        {% csrf_token %}
+        <div class="barraMensaje">
+        <input type="text" name="msg_input" id="msg_input">
+        <input type="submit" value="Enviar">
+    </div>
+
+    </form>
+    {% else %}
+    <h3>Debes iniciar sesion para mandar mensajes</h2>
+    {% endif %}
+</div>
+{% endblock contenido %}

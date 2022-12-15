@@ -27,5 +27,8 @@ class UserEditForm(UserCreationForm):
         fields = ["first_name", "last_name", "email"]
         exclude = ["password1", "password2"]
 
-        #help_texts = {k: "" for k in fields}
+class CrearAvatarForm(UserCreationForm):
+    
+    pass
+
 

@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     "apptienda",
     "appmascotas",
     "applogin",
+    "media",
+    "mensajes",
 ]
 
 MIDDLEWARE = [
