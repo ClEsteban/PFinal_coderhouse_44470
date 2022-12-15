@@ -5,16 +5,16 @@ from django.template import Template, Context, loader
 from applogin.models import *
 from applogin.forms import *
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm #UserEditForm
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm  # UserEditForm
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 # Create your views here.
 
+
 def vista_login(request):
 
     errors = ""
-    
 
     # formulario de carga de mascotas
     if request.method == "POST":
@@ -23,21 +23,23 @@ def vista_login(request):
         if formulario.is_valid():
             data = formulario.cleaned_data
 
-            user = authenticate(username=data["username"], password=data["password"])
+            user = authenticate(
+                username=data["username"], password=data["password"])
 
             if user is not None:
                 login(request, user)
                 return redirect("tienda-inicio")
             else:
-                return render(request, "login.html", {"formulario":formulario, "errors":"credenciales invalidas"})
+                return render(request, "login.html", {"formulario": formulario, "errors": "credenciales invalidas"})
         else:
-            return render(request, "login.html", {"formulario":formulario, "errors":"CREDENCIALES INVALIDAS"})
+            return render(request, "login.html", {"formulario": formulario, "errors": "CREDENCIALES INVALIDAS"})
 
     formulario = AuthenticationForm()
-    return render(request, "login.html", {"formulario":formulario})
+    return render(request, "login.html", {"formulario": formulario})
+
 
 def vista_registro(request):
-   
+
     if request.method == "POST":
         formulario = UserRegisterForm(request.POST)
 
@@ -45,15 +47,21 @@ def vista_registro(request):
             formulario.save()
             return redirect("tienda-inicio")
         else:
-            return render(request, "registro.html", {"formulario":formulario, "errors":formulario.errors})
-       
+            return render(request, "registro.html", {"formulario": formulario, "errors": formulario.errors})
+
     formulario = UserRegisterForm()
 
-    return render(request, "registro.html", {"formulario":formulario})
+    return render(request, "registro.html", {"formulario": formulario})
+
+
+def vista_perfil(request):
+
+    return render(request, "perfil.html")
+
 
 @login_required
 def editar_perfil(request):
-    
+
     usuario = request.user
 
     if request.method == "POST":
@@ -68,9 +76,14 @@ def editar_perfil(request):
             usuario.save()
             return redirect("tienda-inicio")
         else:
-            return render(request, "editar_perfil.html", {"formulario":formulario, "errros":formulario.errors})
+            return render(request, "editar_perfil.html", {"formulario": formulario, "errros": formulario.errors})
 
     else:
-        formulario = UserEditForm(initial={"first_name":usuario.first_name, "last_name":usuario.last_name, "email":usuario.email})
-    
-    return render(request, "editar_perfil.html", {"formulario":formulario})
+        formulario = UserEditForm(initial={
+            "first_name": usuario.first_name,
+            "last_name": usuario.last_name,
+            "email": usuario.email
+        }
+        )
+
+    return render(request, "editar_perfil.html", {"formulario": formulario})
