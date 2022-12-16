@@ -10,7 +10,6 @@ from django.contrib.auth.decorators import login_required
 
 @login_required #decoradores para proteger las funciones, para las clases usar LoginRequiredMixin
 def vista_mascotas(request):
-
     # formulario de carga de mascotas
     if request.method == "POST":
         formulario = MascotaFormulario(request.POST or None)
@@ -27,9 +26,6 @@ def vista_mascotas(request):
     # crea formulario vacio
     formulario = MascotaFormulario()
     contexto = {"mascotas":Mascotas, "mascota":formulario}
-    print("contexto", contexto)
-    
-
     return render(request, "cargatumascota.html", contexto)
 
 def mascota_borrar(request, id):

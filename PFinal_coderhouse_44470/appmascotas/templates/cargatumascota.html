@@ -7,31 +7,92 @@ tus mascotas! {% endblock %} {% block Contenido %}
   los productos especificos para su raza/especie
 </p>
 
-{% if mascotas %}
-<p>
-  {{ mascota }}
-</p>
-<img src="{{mascota.image.url}}" />
-<ul>
-  {% for mascota in mascotas %}
-  <li>
-    {{mascota}}
-    <a href="{% url 'mascota-borrar' mascota.id %}">Eliminar</a>
-    <a href="{% url 'mascota-editar' mascota.id %}">Editar</a>
-  </li>
-  {% endfor %}
-</ul>
-{% else %}
-
-<p>Ups! de momento no hay mascotas cargadas</p>
-<p>Se el primero en compartir con tus amigos!</p>
-{% endif %}
-
-<h3>CARGA TU MASCOTA:</h3>
-
-<form method="post">
-  {% csrf_token %} {{formulario.as_p}}
-  <input type="submit" value="Cargar Mascota" />
+<form method="POST">
+  {% csrf_token %}
+  <div class="row">
+    <div class="col-12 col-md-4 mb-4 mb-md-0">
+      <label class="form-label">
+        Nombre
+      </label>
+      {{ mascota.nombre }}
+    </div>
+    <div class="col-12 col-md-4 mb-4 mb-md-0">
+      <label class="form-label">
+        Tipo
+      </label>
+      {{ mascota.tipo }}
+    </div>
+    <div class="col-12 col-md-4 mb-4 mb-md-0">
+      <label class="form-label text-capitalize">
+        raza
+      </label>
+      {{ mascota.raza }}
+    </div>
+    <div class="col-12 my-4">
+      <label class="form-label text-capitalize">
+        Imagen
+      </label>
+      {{ mascota.imagen }}
+    </div>
+    <div class="col-12 mb-4 mb-md-0">
+      <label class="form-label text-capitalize">
+        descripcion
+      </label>
+      {{ mascota.descripcion }}
+    </div>
+  </div>
+  <div class="row mt-4">
+    <div class="col-12">
+      <input type="submit" class="btn btn-primary" value="Cargar Datos" />
+    </div>
+  </div>
 </form>
+<!-- <img src="{{mascota.image}}" /> ??? -->
+{% if mascotas %}
+<div class="table-responsive mt-4">
+  <table class="table caption-top">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Tipo</th>
+        <th>Raza</th>
+        <th>Descripcion</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in mascotas %}
+      <tr>
+        <th>
+          {{ item.nombre }}
+        </th>
+        <th>
+          {{ item.tipo }}
+        </th>
+        <th>
+          {{ item.raza }}
+        </th>
+        <th>
+          {{ item.descripcion }}
+        </th>
+        <th>
+          <a href="{% url 'mascota-borrar' %}" class="btn btn-danger">
+            Eliminar
+          </a>
+        </th>
+        <th>
+          <a href="{% url 'mascota-editar' %}" class="btn btn-primary">
+            Editar
+          </a>
+        </th>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% else %}
+<p class="mt-4">Ups! de momento no hay mascotas cargadas</p>
+<p>Se el primero en compartir con tus amigos!</p>
 
-{% endblock %}
+{% endif %} {% endblock %}

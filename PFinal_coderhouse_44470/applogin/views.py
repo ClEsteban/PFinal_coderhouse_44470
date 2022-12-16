@@ -91,6 +91,6 @@ def añadir_avatar(request):
             avatar = Avatar(user=usuario, imagen=data['imagen'],github=data['github'],descripcion=data['descripcion'])
             avatar.save()
 
-            return redirect('tienda-inicio')
+            return redirect('vet-login')
         else:
             return render(request, 'editar_perfil.html', {'formulario': formulario, 'errors': formulario.errors })
