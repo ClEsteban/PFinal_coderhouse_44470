@@ -9,6 +9,19 @@
     <p style="color: red">ERROR{{errors}}</p>
 {% endif %}
 
+<div class="container">
+
+    <div class="opcionesPerfil">
+        <a href="{% url 'auth-perfil'%}" class='aPerfil'>Perfil</a>
+        <a href="{% url 'auth-editar-perfil'%}" class='aPerfil'>Editar Perfil</a>
+        <a href="{% url 'auth-avatar'%}" class='aPerfil selected'>Editar Avatar e informacion</a>
+        
+    </div>
+{% if errors %}
+    <p>Errores encontrados</p>
+    <p style="color:red">{{errors}}</p>
+{% endif %}
+
 {% block Contenido %}
 
 <form method="post">

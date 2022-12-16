@@ -76,7 +76,21 @@ def editar_perfil(request):
     return render(request, "editar_perfil.html", {"formulario":formulario})
 
 @login_required
-def agregar_avatar(request):
-        
-        
-        pass
+def añadir_avatar(request):
+        def agregar_avatar(request):
+            formulario = CrearAvatarForm()
+    
+        if request.method == "POST":
+             formulario = CrearAvatarForm(request.POST, files=request.FILES)
+    
+        if formulario.is_valid():
+            data = formulario.cleaned_data
+
+            usuario = request.user
+
+            avatar = Avatar(user=usuario, imagen=data['imagen'],github=data['github'],descripcion=data['descripcion'])
+            avatar.save()
+
+            return redirect('tienda-inicio')
+        else:
+            return render(request, 'editar_perfil.html', {'formulario': formulario, 'errors': formulario.errors })

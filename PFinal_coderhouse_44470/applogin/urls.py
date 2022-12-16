@@ -10,4 +10,5 @@ urlpatterns = [
     path('registro/', vista_registro, name="vet-registro"),
     path('logout/', LogoutView.as_view(template_name="logout.html"), name="vet-logout"),
     path('perfil/', editar_perfil, name="vet-perfil"),
+    path('perfil/avatar/', añadir_avatar, name="vet-avatar"),
 ]
