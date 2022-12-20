@@ -35,3 +35,9 @@ def vista_comprar_producto(request, id):
     producto = Productos.objects.get(id=id)
     producto.delete()
     return redirect("vet-tienda")
+
+
+def vista_perfil(request, nombre):
+    usuario = nombre
+    contexto = {"usuario": usuario}
+    return render(request, 'applogin/perfil.html', contexto)
