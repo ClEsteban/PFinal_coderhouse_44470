@@ -8,6 +8,8 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 
+
+
 @login_required #decoradores para proteger las funciones, para las clases usar LoginRequiredMixin
 def vista_mascotas(request):
     # formulario de carga de mascotas
@@ -18,8 +20,10 @@ def vista_mascotas(request):
             data = formulario.cleaned_data
             Mascota = mascotas(nombre=data["nombre"], tipo=data["tipo"], raza=data["raza"], imagen=data["imagen"], descripcion=data["descripcion"])
             Mascota.save()
+
             formulario = MascotaFormulario()
-            return formulario
+            #return formulario
+            return redirect("vet-mascotas")
     # listado de mascotas:
     Mascotas = mascotas.objects.all()
 
@@ -27,6 +31,9 @@ def vista_mascotas(request):
     formulario = MascotaFormulario()
     contexto = {"mascotas":Mascotas, "mascota":formulario}
     return render(request, "cargatumascota.html", contexto)
+
+
+
 
 def mascota_borrar(request, id):
     mascota = mascotas.objects.get(id=id)
