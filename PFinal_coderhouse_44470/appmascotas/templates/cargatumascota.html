@@ -77,12 +77,12 @@ tus mascotas! {% endblock %} {% block Contenido %}
           {{ item.descripcion }}
         </th>
         <th>
-          <a href="{% url 'mascota-borrar' %}" class="btn btn-danger">
+          <a href="{% url 'mascota-borrar' item.id %}" class="btn btn-danger">
             Eliminar
           </a>
         </th>
         <th>
-          <a href="{% url 'mascota-editar' %}" class="btn btn-primary">
+          <a href="{% url 'mascota-editar' item.id %}" class="btn btn-primary">
             Editar
           </a>
         </th>

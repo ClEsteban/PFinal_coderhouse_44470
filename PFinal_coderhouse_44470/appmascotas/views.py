@@ -35,6 +35,7 @@ def mascota_borrar(request, id):
 
 def mascota_editar(request, id):
     mascota = mascotas.objects.get(id=id)
+    print(mascota)
 
     if request.method == "POST":
         formulario = MascotaFormulario(request.POST)
@@ -47,7 +48,7 @@ def mascota_editar(request, id):
             mascota.raza = data["raza"]
             mascota.imagen = data["imagen"]
             mascota.descripcion = data["descripcion"]
-            mascota.save()
+            mascota.save(id)
             return redirect("vet-mascotas")
         else:
             return render(request, "mascota-editar", {"formulario": formulario, "errores": formulario.errors})
