@@ -17,6 +17,8 @@ def vista_inicio(request):
         except:
             imagen_url = ""
         return render(request, "apptienda/inicio.html")
+    else:
+        return render(request, "apptienda/inicio.html")
 
 
 def vista_tienda(request):

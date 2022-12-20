@@ -171,3 +171,5 @@ cython_debug/
 #.idea/
 
 # End of https://www.toptal.com/developers/gitignore/api/django
+PFinal_coderhouse_44470/db.sqlite3
+*.sqlite3
