@@ -90,25 +90,16 @@
               >
             </li>
             {% if request.user.is_authenticated %}
+        
             <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase" href="{% url 'vet-perfil' %}"
-                >EDITAR PERFIL</a
-              >
+              <a class="nav-link text-uppercase" href="{% url 'vet-logout' %}">
+                LOGOUT
+              </a>
             </li>
             <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase" href="{% url 'vet-logout' %}"
-                >LOGOUT</a
-              >
+              <a class="nav-link" href="{% url 'vista-perfil' %}">Hola {{request.user.username}}!</a>
             </li>
-            <li class="nav-item px-lg-4">
-              <a
-                class="nav-link"
-                href="{% url 'vet-perfil' request.user.username %}"
-              >
-                Hola {{request.user.username}}!</a
-              >
-            </li>
-            <img src="{{imagen_url}}" style="max-width: 60px" />
+            
             {% else %}
             <li class="nav-item px-lg-4">
               <a class="nav-link text-uppercase" href="{% url 'vet-login' %}"

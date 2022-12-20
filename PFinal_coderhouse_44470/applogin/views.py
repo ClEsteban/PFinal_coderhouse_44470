@@ -52,6 +52,11 @@ def vista_registro(request):
     return render(request, "registro.html", {"formulario":formulario})
 
 @login_required
+def ver_perfil(request):
+    return render(request, 'perfil.html')
+
+
+@login_required
 def editar_perfil(request):
     
     usuario = request.user

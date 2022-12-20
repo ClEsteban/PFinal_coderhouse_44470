@@ -2,13 +2,23 @@
 
 {% load static %} 
 
-{% block titulo %} PERFIL {% endblock %}
-{% block subtitulo %} Bienvenido {{request.user.username}}! {% endblock %} 
+{% block titulo %} Bienvenido {{request.user.username}}! {% endblock %}
+{% block subtitulo %} Tu Perfil {% endblock %} 
+
+
 
 
 
 {% block Contenido %}
 
 <h2>Hola</h2>
+
+<img src="{{imagen_url}}" style="max-width: 60px" />
+
+<li class="nav-item px-lg-4">
+    <a class="nav-link text-uppercase" href="{% url 'vet-perfil' %}">
+      EDITAR PERFIL
+    </a>
+  </li>
 
 {% endblock %}
