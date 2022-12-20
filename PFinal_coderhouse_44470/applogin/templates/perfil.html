@@ -1,5 +1,14 @@
-{% extends 'apptienda/base.html' %} {% load static %} {% block titulo %} PERFIL
-{% endblock %} {% block Contenido %}
+{% extends 'apptienda/base.html' %}
+
+{% load static %} 
+
+{% block titulo %} PERFIL {% endblock %}
+{% block subtitulo %} Bienvenido {{request.user.username}}! {% endblock %} 
+
+
+
+{% block Contenido %}
+
 <h2>Hola</h2>
 
 {% endblock %}
