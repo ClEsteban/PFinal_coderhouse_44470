@@ -53,7 +53,9 @@ def vista_registro(request):
 
 @login_required
 def ver_perfil(request):
-    return render(request, 'perfil.html')
+    user = request.user
+    contexto = {"user":user}
+    return render(request, 'perfil.html', contexto)
 
 
 @login_required

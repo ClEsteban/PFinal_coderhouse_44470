@@ -11,7 +11,14 @@
 
 {% block Contenido %}
 
-<h2>Hola</h2>
+<div class="table-responsive mt-4">
+  <table class="table caption-top">
+
+<h2>
+    {{ user.first_name }}
+    {{ user.last_name }}
+    {{ user.email }} 
+</h2>
 
 <img src="{{imagen_url}}" style="max-width: 60px" />
 
