@@ -54,7 +54,14 @@ def vista_registro(request):
 @login_required
 def ver_perfil(request):
     user = request.user
-    contexto = {"user":user}
+    
+    if request.user.is_authenticated:
+        try:
+            imagen_model = Avatar.objects.filter(user=request.user.id)[0]
+            imagen_url = imagen_model.imagen.url
+        except:
+            imagen_url = ""
+    contexto = {"user":user, "imagen_url":imagen_url}
     return render(request, 'perfil.html', contexto)
 
 

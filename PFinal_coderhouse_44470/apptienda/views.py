@@ -10,15 +10,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 def vista_inicio(request):
-    if request.user.is_authenticated:
-        try:
-            imagen_model = Avatar.objects.filter(user=request.user.id)[0]
-            imagen_url = imagen_model.imagen.url
-        except:
-            imagen_url = ""
-        return render(request, "apptienda/inicio.html")
-    else:
-        return render(request, "apptienda/inicio.html")
+    return render(request, "apptienda/inicio.html")
 
 
 def vista_tienda(request):

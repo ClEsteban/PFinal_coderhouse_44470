@@ -5,27 +5,21 @@
 {% block titulo %} Bienvenido {{request.user.username}}! {% endblock %}
 {% block subtitulo %} Tu Perfil {% endblock %} 
 
-
-
-
-
 {% block Contenido %}
 
 <div class="table-responsive mt-4">
   <table class="table caption-top">
 
+    <img src="{{imagen_url}}" style="max-width: 160px" />
+
 <h2>
-    {{ user.first_name }}
-    {{ user.last_name }}
-    {{ user.email }} 
+    <p>{{ user.first_name }}</p>
+    <p>{{ user.last_name }}</p>
+    <p>{{ user.email }}</p>
 </h2>
 
-<img src="{{imagen_url}}" style="max-width: 60px" />
 
-<li class="nav-item px-lg-4">
-    <a class="nav-link text-uppercase" href="{% url 'vet-perfil' %}">
-      EDITAR PERFIL
-    </a>
-  </li>
+
+<a class="nav-link text-uppercase" href="{% url 'vet-perfil' %}">EDITAR PERFIL</a>
 
 {% endblock %}
