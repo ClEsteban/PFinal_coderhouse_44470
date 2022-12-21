@@ -18,7 +18,7 @@ def vista_login(request):
 
     # formulario de carga de mascotas
     if request.method == "POST":
-        formulario = AuthenticationForm(request, data=request.POST)
+        formulario = LoginForm(request, data=request.POST)
 
         if formulario.is_valid():
             data = formulario.cleaned_data
@@ -33,8 +33,8 @@ def vista_login(request):
         else:
             return render(request, "login.html", {"formulario":formulario, "errors":"CREDENCIALES INVALIDAS"})
 
-    formulario = AuthenticationForm()
-    return render(request, "login.html", {"formulario":formulario})
+    login = LoginForm()
+    return render(request, "login.html", {"login":login})
 
 def vista_registro(request):
    
