@@ -58,7 +58,7 @@ def mascota_editar(request, id):
             mascota.save(id)
             return redirect("vet-mascotas")
         else:
-            return render(request, "mascota-editar", {"formulario": formulario, "errores": formulario.errors})
+            return render(request, "editar_mascota.html", {"formulario": formulario, "errores": formulario.errors})
     else:
         formulario = MascotaFormulario(initial={"nombre":mascota.nombre, "tipo":mascota.tipo, "raza":mascota.raza, "imagen":mascota.imagen, "descripcion":mascota.descripcion})
         return render(request, "editar_mascota.html", {"formulario": formulario, "errores": ""})
