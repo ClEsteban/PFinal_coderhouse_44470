@@ -33,12 +33,11 @@ def vista_mascotas(request):
     return render(request, "cargatumascota.html", contexto)
 
 
-
-
 def mascota_borrar(request, id):
     mascota = mascotas.objects.get(id=id)
     mascota.delete()
     return redirect("vet-mascotas")
+
 
 def mascota_editar(request, id):
     mascota = mascotas.objects.get(id=id)
@@ -62,6 +61,7 @@ def mascota_editar(request, id):
     else:
         formulario = MascotaFormulario(initial={"nombre":mascota.nombre, "tipo":mascota.tipo, "raza":mascota.raza, "imagen":mascota.imagen, "descripcion":mascota.descripcion})
         return render(request, "editar_mascota.html", {"formulario": formulario, "errores": ""})
+
 
 # EJEMPLO DE CLASES BASADAS EN VISTAS
 class MascotaList(ListView):

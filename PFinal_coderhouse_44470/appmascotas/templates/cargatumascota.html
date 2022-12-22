@@ -7,47 +7,12 @@ tus mascotas! {% endblock %} {% block Contenido %}
   los productos especificos para su raza/especie
 </p>
 
-<form method="POST">
-  {% csrf_token %}
-  <div class="row">
-    <div class="col-12 col-md-4 mb-4 mb-md-0">
-      <label class="form-label">
-        Nombre
-      </label>
-      {{ mascota.nombre }}
-    </div>
-    <div class="col-12 col-md-4 mb-4 mb-md-0">
-      <label class="form-label">
-        Tipo
-      </label>
-      {{ mascota.tipo }}
-    </div>
-    <div class="col-12 col-md-4 mb-4 mb-md-0">
-      <label class="form-label text-capitalize">
-        raza
-      </label>
-      {{ mascota.raza }}
-    </div>
-    <div class="col-12 my-4">
-      <label class="form-label text-capitalize">
-        Imagen
-      </label>
-      {{ mascota.imagen }}
-    </div>
-    <div class="col-12 mb-4 mb-md-0">
-      <label class="form-label text-capitalize">
-        descripcion
-      </label>
-      {{ mascota.descripcion }}
-    </div>
-  </div>
-  <div class="row mt-4">
-    <div class="col-12">
-      <input type="submit" class="btn btn-primary" value="Cargar Datos" />
-    </div>
-  </div>
-</form>
-<!-- <img src="{{mascota.image}}" /> ??? -->
+<th>
+  <a href="{% url 'mascota-create' %}" class="btn btn-danger">
+    Crear Mascota
+  </a>
+</th>
+
 {% if mascotas %}
 <div class="table-responsive mt-4">
   <table class="table caption-top">
@@ -77,12 +42,15 @@ tus mascotas! {% endblock %} {% block Contenido %}
           {{ item.descripcion }}
         </th>
         <th>
+        <img src={{item.imagen_url}} style="max-width: 160px" />
+      </th>
+        <th>
           <a href="{% url 'mascota-borrar' item.id %}" class="btn btn-danger">
             Eliminar
           </a>
         </th>
         <th>
-          <a href="{% url 'mascota-editar' item.id %}" class="btn btn-primary">
+          <a href="{% url 'mascota-actualizar' item.id %}" class="btn btn-primary">
             Editar
           </a>
         </th>
