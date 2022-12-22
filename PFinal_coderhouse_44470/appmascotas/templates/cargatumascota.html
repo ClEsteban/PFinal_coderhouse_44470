@@ -42,7 +42,7 @@ tus mascotas! {% endblock %} {% block Contenido %}
           {{ item.descripcion }}
         </th>
         <th>
-        <img src={{item.imagen_url}} style="max-width: 160px" />
+        <img src={{item.imagen.url}} style="max-width: 160px" />
       </th>
         <th>
           <a href="{% url 'mascota-borrar' item.id %}" class="btn btn-danger">
