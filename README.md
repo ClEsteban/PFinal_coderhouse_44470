@@ -9,4 +9,8 @@ funcion de login y carga de datos de perfiles, imagenes y otras funciones.
 
 trabajo realizado en el framework Django para el curso de Python de CoderHouse entre los meses de octubre y diciembre del 2022 
 
+VIDEO RESUMEN DEL PROYECTO:
+https://drive.google.com/file/d/1cQdDMmj32xfeDECBaxpGAHs4w_kSEyOk/view?usp=sharing
 
+usuario: Leonel
+pass: Proyecto12345
