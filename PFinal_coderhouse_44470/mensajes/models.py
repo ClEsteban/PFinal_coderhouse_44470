@@ -12,6 +12,7 @@ class Mensajes(models.Model):
 class Messaje(models.Model):
     id = models.AutoField(primary_key=True)
     mensaje = models.TextField(verbose_name= 'Mensaje', null=True)
+    fecha = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):
         fila = f"Mensaje: {self.descripcion}"
