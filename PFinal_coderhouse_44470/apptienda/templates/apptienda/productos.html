@@ -13,6 +13,9 @@
       {{producto}} 
       <a href="{% url 'vet-comprar' producto.id %}">Comprar</a>
     </li>
+    <th>
+        <img src={{producto.imagen.url}} style="max-width: 160px" />
+    </th>
     {% endfor %}
 </ul>
 {% else %}
