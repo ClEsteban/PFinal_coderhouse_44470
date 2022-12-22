@@ -1,0 +1,31 @@
+{% extends 'apptienda/base.html' %}
+
+{% load static %}
+
+{% block titulo %} Dejanos tu {% endblock %}
+{% block subtitulo %} Mensaje {% endblock %}
+
+{% block Contenido %}
+
+{% if object_list %}
+   {% for messaje in object_list %}
+    <li>
+      {{messaje.mensaje}} 
+      
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+
+<p> Se el primero en dejar un mensaje! </p>
+{% endif %}
+
+<th>
+    <a href="{% url 'mensaje-create' %}" class="btn btn-danger">
+      Enviar Mensaje
+    </a>
+  </th>
+
+
+
+{% endblock %}

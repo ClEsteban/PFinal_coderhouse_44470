@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
-from mensajes.models import Mensajes
+from mensajes.models import Mensajes, Messaje
 import datetime
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+
 
 def vista_contacto(request):
     mensajes = Mensajes.objects.all()
@@ -11,3 +13,12 @@ def vista_contacto(request):
             msg.save()
         return redirect('tienda-contacto')
     return render(request,'mensajes.html',{'mensajes':mensajes})
+
+class MessajeCrear(CreateView):
+   model = Messaje
+   success_url = "/contacto/mensajes/list"
+   fields = ["mensaje"]
+
+class MessajeList(ListView):
+    model = Messaje
+    template_name = "messaje_list.html"
